@@ -15,13 +15,13 @@ Answer the following questions below:
   - Node.js is a JavaScript runtime environment that runs server-side while Express.js is a web application framework for Node.js that provides tools and features for building web apps and APIs.
 
 - What is the error-first callback pattern?
-  - It's what Node.js callbacks usually conform to. The callback's first param is listed as *error*. Node then supplies an *error object* if something bad happens, otherwise *null* as args.
+  - It's what Node.js callbacks usually conform to. The callback's first param is listed as ***error***. Node then supplies an ***error object*** if something bad happens, otherwise ***null*** as args.
 
 - What is middleware?
-  - 
+  - Middleware are functions that can intercept and run in the middle of the request/response cycle. In Express they get access to the ***req*** and ***res*** objects and can call the ***next*** function.
 
 - What does the `next` function do?
-  - 
+  - If it isn't included, the following routes won't run. It's used to pass control to the next middleware function in the chain.
 
 - What are some issues with the following code? (consider all aspects: performance, structure, naming, etc)
 
