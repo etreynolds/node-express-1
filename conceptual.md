@@ -3,6 +3,7 @@
 Answer the following questions below:
 
 - What are some ways of managing asynchronous code in JavaScript?
+  - A few ways of managing asynchronous code in JS are callback functions, Promises, and async/await.
 
 - What is a Promise?
 
