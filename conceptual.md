@@ -25,23 +25,23 @@ Answer the following questions below:
 
 - What are some issues with the following code? (consider all aspects: performance, structure, naming, etc)
 
-```js
-async function getUsers() {
-  const elie = await $.getJSON('https://api.github.com/users/elie');
-  const joel = await $.getJSON('https://api.github.com/users/joelburton');
-  const matt = await $.getJSON('https://api.github.com/users/mmmaaatttttt');
-
-  return [elie, matt, joel];
-}
-```
-  - This code makes three separate HTTP requests using ***$.getJSON*** which can be slow and inefficient. Instead of calling it three separate times, we could use an array of usernames and loop over them to make the HTTP requests:
   ```js
-  async function getUserData(usernames) {
-    const requests = usernames.map(username => $.getJSON(`https://api.github.com/users/${username}`));
-    const userData = await Promise.all(requests);
-    return userData;
-  }
+  async function getUsers() {
+    const elie = await $.getJSON('https://api.github.com/users/elie');
+    const joel = await $.getJSON('https://api.github.com/users/joelburton');
+    const matt = await $.getJSON('https://api.github.com/users/mmmaaatttttt');
 
-  const usernames = ['elie', 'joelburton', 'mmmaaatttttt'];
-  const userData = await getUserData(usernames);
+    return [elie, matt, joel];
+  }
   ```
+  - This code makes three separate HTTP requests using ***$.getJSON*** which can be slow and inefficient. Instead of calling it three separate times, we could use an array of usernames and loop over them to make the HTTP requests:
+    ```js
+    async function getUserData(usernames) {
+      const requests = usernames.map(username => $.getJSON(`https://api.github.com/users/${username}`));
+      const userData = await Promise.all(requests);
+      return userData;
+    }
+
+    const usernames = ['elie', 'joelburton', 'mmmaaatttttt'];
+    const userData = await getUserData(usernames);
+    ```
